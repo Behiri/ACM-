@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class test
+{
+public:
+    void Output();
+    void GetData(float);
+    test();
+
+private:
+    float m_target;
+    float sum;
+    short counter;
+    float n;
+};
+test::test()
+{
+    sum = 0;
+    counter = 0;
+    n = 2.0;
+}
+
+
+void test::GetData(float data)
+{
+    m_target = data;
+}
+
+void test::Output()
+{
+    while (m_target > sum)
+    {
+        sum += (1 / n++);
+        counter++;
+    }
+    if (m_target == 0.00)
+        return;
+    cout << counter << "  card(s)" << endl;
+}
+
+
+int main()
+{
+    float num;
+    num = 1.0;
+
+    while (num != 0.00)
+    {
+        test firstTest;
+        cin >> num;
+        firstTest.GetData(num);
+        firstTest.Output();
+    }
+}
+
