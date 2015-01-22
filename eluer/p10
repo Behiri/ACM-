@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Primes
+{
+public:
+    Primes();
+    bool IsPrime(int);
+    void AddPrime(int);
+    void ShowPrime();
+    int TwoMillion;
+private:
+    long long m_sum;
+};
+
+Primes::Primes()
+{
+    m_sum = 5;
+    TwoMillion = 2000000;
+}
+
+bool Primes::IsPrime(int number)
+{
+    for (int i = 5; i < number; i += 2)
+    {
+        if (number % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Primes::AddPrime(int number)
+{
+    m_sum += number;
+}
+
+void Primes::ShowPrime()
+{
+    cout << "the sum is: " << m_sum << endl;
+}
+
+
+int main()
+{
+    Primes primeTest;
+    for (int i = 2; i < primeTest.TwoMillion ; i++)
+    {
+        if (primeTest.IsPrime(i))
+        {
+            primeTest.AddPrime(i);
+            cout << i << endl;
+        }
+    }
+    primeTest.ShowPrime();
+    return 0;
+}
